@@ -16,6 +16,6 @@ final class Hook
     }
     public function has(/* ... */): mixed
     {
-        return null;
+        return $this;
     }
 }
