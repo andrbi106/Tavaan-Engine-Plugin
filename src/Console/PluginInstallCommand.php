@@ -9,7 +9,7 @@ use Tavaan\Core\Contracts\Console\CommandInterface;
 /**
  * plugin:install command.
  */
-final class Plugin_installCommand implements CommandInterface
+final class PluginInstallCommand implements CommandInterface
 {
     public function name(): string
     {

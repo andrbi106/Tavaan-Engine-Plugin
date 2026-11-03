@@ -7,18 +7,18 @@ namespace Tavaan\Engine\Plugin\Console;
 use Tavaan\Core\Contracts\Console\CommandInterface;
 
 /**
- * plugin:disable command.
+ * plugin:verify command.
  */
-final class Plugin_disableCommand implements CommandInterface
+final class PluginVerifyCommand implements CommandInterface
 {
     public function name(): string
     {
-        return 'plugin:disable';
+        return 'plugin:verify';
     }
 
     public function description(): string
     {
-        return 'Run plugin:disable (TODO: fill description).';
+        return 'Run plugin:verify (TODO: fill description).';
     }
 
     public function handle(array $args = []): int

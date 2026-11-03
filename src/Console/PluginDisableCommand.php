@@ -7,18 +7,18 @@ namespace Tavaan\Engine\Plugin\Console;
 use Tavaan\Core\Contracts\Console\CommandInterface;
 
 /**
- * plugin:uninstall command.
+ * plugin:disable command.
  */
-final class Plugin_uninstallCommand implements CommandInterface
+final class PluginDisableCommand implements CommandInterface
 {
     public function name(): string
     {
-        return 'plugin:uninstall';
+        return 'plugin:disable';
     }
 
     public function description(): string
     {
-        return 'Run plugin:uninstall (TODO: fill description).';
+        return 'Run plugin:disable (TODO: fill description).';
     }
 
     public function handle(array $args = []): int

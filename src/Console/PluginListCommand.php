@@ -7,18 +7,18 @@ namespace Tavaan\Engine\Plugin\Console;
 use Tavaan\Core\Contracts\Console\CommandInterface;
 
 /**
- * plugin:scan command.
+ * plugin:list command.
  */
-final class Plugin_scanCommand implements CommandInterface
+final class PluginListCommand implements CommandInterface
 {
     public function name(): string
     {
-        return 'plugin:scan';
+        return 'plugin:list';
     }
 
     public function description(): string
     {
-        return 'Run plugin:scan (TODO: fill description).';
+        return 'Run plugin:list (TODO: fill description).';
     }
 
     public function handle(array $args = []): int

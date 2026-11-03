@@ -9,7 +9,7 @@ use Tavaan\Core\Contracts\Console\CommandInterface;
 /**
  * plugin:update command.
  */
-final class Plugin_updateCommand implements CommandInterface
+final class PluginUpdateCommand implements CommandInterface
 {
     public function name(): string
     {

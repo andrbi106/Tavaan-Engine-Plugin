@@ -7,18 +7,18 @@ namespace Tavaan\Engine\Plugin\Console;
 use Tavaan\Core\Contracts\Console\CommandInterface;
 
 /**
- * plugin:verify command.
+ * plugin:uninstall command.
  */
-final class Plugin_verifyCommand implements CommandInterface
+final class PluginUninstallCommand implements CommandInterface
 {
     public function name(): string
     {
-        return 'plugin:verify';
+        return 'plugin:uninstall';
     }
 
     public function description(): string
     {
-        return 'Run plugin:verify (TODO: fill description).';
+        return 'Run plugin:uninstall (TODO: fill description).';
     }
 
     public function handle(array $args = []): int
