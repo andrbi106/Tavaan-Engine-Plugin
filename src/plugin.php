@@ -54,28 +54,63 @@ final class PluginServiceProvider
     public function provides(): array { return [PluginManager::class, Plugin::class]; }
     public function getManager(): PluginManager { if ($this->manager === null) $this->register(); return $this->manager; }
 
-    public function install()
+    public function install(string $path): ?Plugin
     {
-        return null;
+        if (!is_dir($path)) { return null; }
+        $manifestFile = $path . '/plugin.json';
+        if (!file_exists($manifestFile)) { return null; }
+        $manifest = json_decode((string) @file_get_contents($manifestFile), true);
+        if (!is_array($manifest)) { return null; }
+        $plugin = new Plugin(
+            $manifest['id'] ?? basename($path),
+            $manifest['name'] ?? basename($path),
+            $manifest['version'] ?? '0.0.1',
+            $path,
+            true,
+            $manifest,
+        );
+        $this->getManager()->register($plugin);
+        return $plugin;
     }
-    public function list()
+    public function list(): array
     {
-        return null;
+        return $this->getManager()->all();
     }
-    public function scan()
+    public function scan(string $dir): array
     {
-        return null;
+        $found = [];
+        if (!is_dir($dir)) { return $found; }
+        foreach (new \DirectoryIterator($dir) as $entry) {
+            if ($entry->isDot() || !$entry->isDir()) { continue; }
+            $p = $this->install($entry->getPathname());
+            if ($p !== null) { $found[] = $p; }
+        }
+        return $found;
     }
-    public function uninstall()
+    public function uninstall(string $id): bool
     {
-        return null;
+        $manager = $this->getManager();
+        if (!$manager->has($id)) { return false; }
+        $manager->disable($id);
+        return true;
     }
-    public function update(array $values): self
+    public function update(string $id, array $values): self
     {
-        return null;
+        $manager = $this->getManager();
+        if (!$manager->has($id)) { return $this; }
+        $old = $manager->get($id);
+        $manifest = array_merge($old->manifest, $values);
+        $new = new Plugin($old->id, $old->name, $values['version'] ?? $old->version, $old->path, $old->enabled, $manifest);
+        $manager->register($new);
+        return $this;
     }
-    public function verify()
+    public function verify(string $id): bool
     {
-        return null;
+        $plugin = $this->getManager()->get($id);
+        if ($plugin === null) { return false; }
+        foreach ($plugin->dependencies() as $dep) {
+            if (!$this->getManager()->has($dep)) { return false; }
+        }
+        return is_dir($plugin->path) && file_exists($plugin->path . '/plugin.json');
     }
 }
