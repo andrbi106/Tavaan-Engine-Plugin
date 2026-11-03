@@ -8,7 +8,7 @@ final class Hook
 {
     public function listen(/* ... */): mixed
     {
-        return null;
+        return [];
     }
     public function fire(/* ... */): mixed
     {

@@ -60,7 +60,7 @@ final class PluginServiceProvider
     }
     public function list(/* ... */): mixed
     {
-        return null;
+        return [];
     }
     public function scan(/* ... */): mixed
     {
@@ -72,7 +72,7 @@ final class PluginServiceProvider
     }
     public function update(/* ... */): mixed
     {
-        return null;
+        return $this;
     }
     public function verify(/* ... */): mixed
     {
