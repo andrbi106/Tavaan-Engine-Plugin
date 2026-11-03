@@ -16,7 +16,7 @@ use Tavaan\Engine\Plugin\Hook;
  */
 final class PluginScenarioTest extends TestCase
 {
-    public function t01_register_and_get(): void
+    public function test_t01_register_and_get(): void
     {
         // Scenario T-01
 $pm = new PluginManager();
@@ -25,7 +25,7 @@ $pm = new PluginManager();
         $this->assertTrue($pm->has("p1"));
         $this->assertSame($p, $pm->get("p1"));
     }
-    public function t02_enabled_filter(): void
+    public function test_t02_enabled_filter(): void
     {
         // Scenario T-02
 $pm = new PluginManager();
@@ -35,7 +35,7 @@ $pm = new PluginManager();
         $this->assertCount(1, $enabled);
         $this->assertSame("on", $enabled[0]->id);
     }
-    public function t03_hook_listen_and_fire(): void
+    public function test_t03_hook_listen_and_fire(): void
     {
         // Scenario T-03
 $h = new Hook();
@@ -43,7 +43,7 @@ $h = new Hook();
         $out = $h->fire("filter", 5);
         $this->assertSame(10, $out);
     }
-    public function t04_hook_priority_order(): void
+    public function test_t04_hook_priority_order(): void
     {
         // Scenario T-04
 $h = new Hook();
@@ -53,7 +53,7 @@ $h = new Hook();
         // Priority 10 (lower) fires first
         $this->assertSame("X21", $out);
     }
-    public function t05_hook_remove(): void
+    public function test_t05_hook_remove(): void
     {
         // Scenario T-05
 $h = new Hook();
