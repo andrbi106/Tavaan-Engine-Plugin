@@ -1,2 +1,2 @@
 <?php
-return return ['error_plugin' => 'پلاگین یافت نشد.'];;
+return ['error_plugin' => 'پلاگین یافت نشد.'];
