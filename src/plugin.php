@@ -54,27 +54,27 @@ final class PluginServiceProvider
     public function provides(): array { return [PluginManager::class, Plugin::class]; }
     public function getManager(): PluginManager { if ($this->manager === null) $this->register(); return $this->manager; }
 
-    public function install(/* ... */): mixed
+    public function install()
     {
         return null;
     }
-    public function list(/* ... */): mixed
-    {
-        return [];
-    }
-    public function scan(/* ... */): mixed
+    public function list()
     {
         return null;
     }
-    public function uninstall(/* ... */): mixed
+    public function scan()
     {
         return null;
     }
-    public function update(/* ... */): mixed
+    public function uninstall()
     {
-        return $this;
+        return null;
     }
-    public function verify(/* ... */): mixed
+    public function update(array $values): self
+    {
+        return null;
+    }
+    public function verify()
     {
         return null;
     }
