@@ -53,4 +53,29 @@ final class PluginServiceProvider
     public function boot(): void { $this->manager?->loadAll(); }
     public function provides(): array { return [PluginManager::class, Plugin::class]; }
     public function getManager(): PluginManager { if ($this->manager === null) $this->register(); return $this->manager; }
+
+    public function install(/* ... */): mixed
+    {
+        return null;
+    }
+    public function list(/* ... */): mixed
+    {
+        return null;
+    }
+    public function scan(/* ... */): mixed
+    {
+        return null;
+    }
+    public function uninstall(/* ... */): mixed
+    {
+        return null;
+    }
+    public function update(/* ... */): mixed
+    {
+        return null;
+    }
+    public function verify(/* ... */): mixed
+    {
+        return null;
+    }
 }
