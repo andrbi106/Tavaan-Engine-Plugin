@@ -37,5 +37,6 @@
     "name": "Plugin",
     "accessor": "plugins"
   },
-  "notes": "M8/TVN-0079: manifest + Ed25519 (sodium) + plugins.lock (SHA-256) + scanner توکنی + sandbox (autoload append/vendor ایزوله/capabilities) + Hook (اعلام‌شده‌محور + timeout/memory) + چرخهٔ عمر کامل."
+  "notes": "M8/TVN-0079: manifest + Ed25519 (sodium) + plugins.lock (SHA-256) + scanner توکنی + sandbox (autoload append/vendor ایزوله/capabilities) + Hook (اعلام‌شده‌محور + timeout/memory) + چرخهٔ عمر کامل.",
+  "class": "Tavaan\\Engine\\Plugin\\PluginEngine"
 }
